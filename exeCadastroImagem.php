@@ -32,5 +32,5 @@ $novaImagemDAO = new imagemDAO();
 	$novaImagem->setUser_twitter($_POST['user_twitter']);
 	$novaImagem->setPath($path);
 
-	$novaImagemDAO->inserir($novaImagem);
+	$novaImagemDAO->insertImg($novaImagem);
 ?>

@@ -42,5 +42,3 @@ rightArrow.addEventListener('click', () => {
         updateImage(index + 1);
     }
 })
-Footer
-© 2022 GitHub, Inc.

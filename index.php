@@ -37,33 +37,24 @@
 		<button name="upload" type="submit">Enviar arquivo</button>
 	</form>
 	<h1>TESTE</h1>
-	<table border="1" cellpadding="10">
-		<thead>
-			<th>Preview</th>
-			<th>Arquivo</th>
-			<th>Data do envio</th>
-		</thead>
-		<tbody>
-			<?php
 
-			include("C:\wamp64\www\projeto\conexao.php");
+	<?php
+	include("DAO/imagemDAO.php");
+	$img = new imagemDAO();
+	$arrImg = $img->findAll();
 
-			$sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
-
-			while ($arquivo = $sql_query->fetch_assoc()) {
-			?>
-
-				<tr>
-					<td><img height="50" src="<?php echo $arquivo['path']; ?>" alt=""></td>
-					<td><a target="_blank" href="<?php echo $arquivo['path']; ?>"><?php echo $arquivo['path']; ?></a></td>
-					<td><?php echo date("d/m/Y H:i", strtotime($arquivo['date_upload'])); ?></td>
-				</tr>
-			<?php
-			}
-			?>
-
-		</tbody>
-	</table>
+	foreach ($arrImg as $img) {
+		echo "<div>";
+		echo $img->getData_upload() . "<br>";
+		echo $img->getId() . "<br>";
+		echo $img->getPath() . "<br>";
+		echo $img->getUser() . "<br>";
+		echo $img->getUser_insta() . "<br>";
+		echo $img->getUser_twitter() . "<br>";
+		echo "</div>";
+	}
+	?>
 
 </body>
+
 </html>
