@@ -23,7 +23,7 @@ class imagemDAO extends DB
 			echo "Erro ao inserir cooperativa: " . $e->getMessage();
 		}
 
-		echo "<br><a href=index.php>Voltar</a>";
+		echo "<br><a href=/index.php>Voltar</a>";
 	}
 
 	public function findAll(){
@@ -45,6 +45,13 @@ class imagemDAO extends DB
         return $arrImagens;
 	}
 
-	
+	public function deleteImg($imgId){
+		$sql = 'DELETE FROM `arquivos` WHERE `arquivos`.`id` = :imgId';
+		$stmt = DB::prepare($sql);
+		$stmt->bindValue(":imgId",$imgId);
+		if($stmt->execute())
+			return true;
+		else
+			return false;
+	}
 }
-?>

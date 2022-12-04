@@ -1,3 +1,9 @@
+<?php
+include("DAO/imagemDAO.php");
+$img = new imagemDAO();
+$arrImg = $img->findAll();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +18,7 @@
 
 <body>
 
-	<form method="POST" enctype="multipart/form-data" action="exeCadastroImagem.php">
+	<form method="POST" enctype="multipart/form-data" action="exeClasse/exeCadastroImagem.php">
 
 		<p>
 			<label for="">User</label>
@@ -39,18 +45,21 @@
 	<h1>TESTE</h1>
 
 	<?php
-	include("DAO/imagemDAO.php");
-	$img = new imagemDAO();
-	$arrImg = $img->findAll();
 
 	foreach ($arrImg as $img) {
 		echo "<div>";
 		echo $img->getData_upload() . "<br>";
-		echo $img->getId() . "<br>";
 		echo $img->getPath() . "<br>";
 		echo $img->getUser() . "<br>";
 		echo $img->getUser_insta() . "<br>";
 		echo $img->getUser_twitter() . "<br>";
+		?>
+
+<nav>
+					<a class="botao" href="editar-artigo.php?=<?php echo $img->getId(); ?>">Editar</a>
+					<a id="excluirId" name="excluirId" class="botao" href="exeClasse/exeExcluirImagem.php?excluirId=<?php echo $img->getId(); ?>">Excluir</a>
+				</nav>
+				<?php
 		echo "</div>";
 	}
 	?>
