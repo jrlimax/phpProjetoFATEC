@@ -25,24 +25,22 @@ $imgInfo = $img->findById($_GET['editarId']);
 		<input type="hidden" id="editarId" name="editarId" value="<?php echo $_GET['editarId'];?>" />
 		
 		<p>
-		<p>User atual: <?php echo $imgInfo->getUser() . "<br>"; ?></p>
 		<label for="">Insira o novo User</label>
 		<input id="editarUser" name="editarUser" type="text" value="<?php echo $imgInfo->getUser();?>">
 		</p>
 
 		<p>
-		<p>User atual: <?php echo $imgInfo->getUser_insta() . "<br>"; ?></p>
 		<label for="">Insira o novo Instagram</label>
 		<input id="editarUser_insta" name="user_insta" type="text" value="<?php echo $imgInfo->getUser_insta();?>">
 		</p>
 
 		<p>
-		<p>User atual: <?php echo $imgInfo->getUser_twitter() . "<br>"; ?></p>
 		<label for="">Insira o novo Twitter</label>
 		<input id="editarUser_twitter" name="user_twitter" type="text" value="<?php echo $imgInfo->getUser_twitter();?>">
 		</p>
 
 		<button name="upload" type="submit">Enviar alteração</button>
+		<a href="/index.php">Voltar</a>
 	</form>
 </body>
 

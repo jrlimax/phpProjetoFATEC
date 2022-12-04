@@ -48,15 +48,18 @@ $arrImg = $img->findAll();
 	<h2>Tabela</h2>
 
 	<div>
+		
 		<?php
-
 		foreach ($arrImg as $img) {
-			echo $img->getData_upload() . "<br>";
-			echo $img->getPath() . "<br>";
+			?>
+			<img height="50" src="<?php echo $img->getPath() ?>" alt=""><br>
+			<?php
+			echo date("d/m/Y", strtotime($img->getData_upload())) . "<br>";
 			echo $img->getUser() . "<br>";
-			echo $img->getUser_insta() . "<br>";
-			echo $img->getUser_twitter() . "<br>";
-		?>
+			?>
+			<a target="_blank" href="https://www.instagram.com/<?php echo $img->getUser_insta()?>">Instagram</a><br>
+			<a target="_blank" href="https://www.twitter.com/<?php echo $img->getUser_twitter()?>">Twitter</a><br>
+
 
 			<nav>
 				<a id="editarId" name="editarId" class="botao" href="pages/editarArquivo.php?editarId=<?php echo $img->getId(); ?>">Editar</a>

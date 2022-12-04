@@ -13,7 +13,7 @@ require_once 'C:\wamp64\www\phpProjetoFATEC\DAO\imagemDAO.php';
 	if ($arquivo['size'] > 2097152)
 		die("Arquivo muito grande !! Max: 2mb");
 
-	$pasta = "C:/wamp64/www/phpProjetoFATEC/arquivos/";
+	$pasta = "../arquivos/";
 	$nomeDoArquivo = $arquivo['name'];
 	$novoNomeDoArquivo = uniqid();
 	$extensao = strtolower(pathinfo($nomeDoArquivo, PATHINFO_EXTENSION));
