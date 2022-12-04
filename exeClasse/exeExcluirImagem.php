@@ -1,11 +1,6 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/classes/cadastroImagem.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/DAO/imagemDAO.php');
+require_once 'C:\wamp64\www\phpProjetoFATEC\DAO\imagemDAO.php';
 
-
-
-	$artigoDao = new imagemDAO();
-	$artigoDao->deleteImg($_GET['excluirId']);
-
-echo $_GET['excluirId'];
-echo "<br><a href=/index.php>Voltar</a>";
+$imagem = new imagemDAO();
+$imagem->deleteImg($_GET['excluirId']);
+header('Location: /index.php');

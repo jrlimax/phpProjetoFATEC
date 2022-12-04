@@ -30,3 +30,5 @@ require_once 'C:\wamp64\www\phpProjetoFATEC\DAO\imagemDAO.php';
 	$novaImagem->setPath($path);
 
 	$novaImagemDAO->insertImg($novaImagem);
+
+	header('Location: /index.php');

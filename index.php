@@ -18,6 +18,8 @@ $arrImg = $img->findAll();
 
 <body>
 
+	<h1>BANCO DE IMAGENS</h1>
+
 	<form method="POST" enctype="multipart/form-data" action="exeClasse/exeCadastroImagem.php">
 
 		<p>
@@ -42,28 +44,30 @@ $arrImg = $img->findAll();
 
 		<button name="upload" type="submit">Enviar arquivo</button>
 	</form>
-	<h1>TESTE</h1>
+	
+	<h2>Tabela</h2>
 
-	<?php
+	<div>
+		<?php
 
-	foreach ($arrImg as $img) {
-		echo "<div>";
-		echo $img->getData_upload() . "<br>";
-		echo $img->getPath() . "<br>";
-		echo $img->getUser() . "<br>";
-		echo $img->getUser_insta() . "<br>";
-		echo $img->getUser_twitter() . "<br>";
+		foreach ($arrImg as $img) {
+			echo $img->getData_upload() . "<br>";
+			echo $img->getPath() . "<br>";
+			echo $img->getUser() . "<br>";
+			echo $img->getUser_insta() . "<br>";
+			echo $img->getUser_twitter() . "<br>";
 		?>
 
-<nav>
-					<a class="botao" href="editar-artigo.php?=<?php echo $img->getId(); ?>">Editar</a>
-					<a id="excluirId" name="excluirId" class="botao" href="exeClasse/exeExcluirImagem.php?excluirId=<?php echo $img->getId(); ?>">Excluir</a>
-				</nav>
-				<?php
-		echo "</div>";
-	}
-	?>
+			<nav>
+				<a id="editarId" name="editarId" class="botao" href="pages/editarArquivo.php?editarId=<?php echo $img->getId(); ?>">Editar</a>
+				<a id="excluirId" name="excluirId" class="botao" href="exeClasse/exeExcluirImagem.php?excluirId=<?php echo $img->getId(); ?>">Excluir</a>
+				<br><br>
+			</nav>
+		<?php
 
+		}
+		?>
+		</div>
 </body>
 
 </html>
