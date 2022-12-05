@@ -12,9 +12,10 @@ $arrImg = $img->findAll();
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Banco de Imagens</title>
+	<link rel="stylesheet" href="styles/styles.css">
+
+
 </head>
-
-
 
 <body>
 
@@ -44,15 +45,16 @@ $arrImg = $img->findAll();
 
 		<button name="upload" type="submit">Enviar arquivo</button>
 	</form>
-	
-	<h2>Tabela</h2>
 
-	<div>
-		
+	<h2>Imagens Cadastradas</h2>
+
+	<div >
 		<?php
 		foreach ($arrImg as $img) {
 			?>
-			<img height="50" src="<?php echo $img->getPath() ?>" alt=""><br>
+			<div class="zoom">
+				<a target="_blank" href="<?php echo $img->getPath() ?>"><img class="img-responsive" height="150" src="<?php echo $img->getPath() ?>"></a><br>
+			</div>
 			<?php
 			echo date("d/m/Y", strtotime($img->getData_upload())) . "<br>";
 			echo $img->getUser() . "<br>";
@@ -71,6 +73,8 @@ $arrImg = $img->findAll();
 		}
 		?>
 		</div>
+
+		<script src="/scriptsJS/app.js"></script>
 </body>
 
 </html>
